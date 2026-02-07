@@ -15,7 +15,7 @@ The custom implementation (`main.py`) requires **no external dependencies**. You
 
 ```bash
 # Navigate to project directory
-cd /home/runner/work/task-3/task-3
+cd task-3
 
 # Run with default settings (word-level, 2-gram model, 50 tokens)
 python main.py

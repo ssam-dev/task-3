@@ -15,10 +15,13 @@ Reference: https://towardsdatascience.com/text-generation-with-markov-chains-an-
 1. Ensure you have Python 3.9+ installed.
 2. Use the provided sample corpus in `data/corpus.txt` or point to your own.
 
-### Run
+### Run the Custom Implementation (No Dependencies Required)
 
-```
-# Word-level, bigram model
+```bash
+# Word-level, bigram model (default)
+python main.py
+
+# With custom settings
 python main.py --corpus-path data/corpus.txt --mode word --order 2 --length 50 --stop-at-sentence
 
 # Character-level, 4-gram model
@@ -27,6 +30,24 @@ python main.py --corpus-path data/corpus.txt --mode char --order 4 --length 300
 # Start with a specific word (if present in starts)
 python main.py --corpus-path data/corpus.txt --mode word --order 2 --length 60 --seed To --stop-at-sentence
 ```
+
+### Run the Markovify Implementation
+
+First, install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Then run:
+```bash
+# Generate 5 sentences using markovify (use state-size 1 for small corpus)
+python markovify_main.py --state-size 1
+
+# Generate 10 short sentences
+python markovify_main.py --samples 10 --short-max 100 --state-size 1
+```
+
+📖 **For detailed usage instructions, troubleshooting, and explanation of how text generation works, see [USAGE.md](USAGE.md)**
 
 ## How It Works
 - The model builds a transition table mapping each n-token state to counts of the next token.
